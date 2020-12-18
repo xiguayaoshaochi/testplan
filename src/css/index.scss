@@ -1,0 +1,77 @@
+body{
+  background: #f5f5f6;
+  font-size: 12px;
+}
+ [v-cloak] { display: none } 
+.login_box{
+  width: 600px;
+  font-size: 12px;
+  height: 360px;
+  border: 0 ;
+  padding-top: 50px;
+  box-shadow: 0 2px 15px rgba(0,0,0,.15);
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  transform: translate(-50%,-50%);
+  >div{
+    width: 60%;
+    margin: 0 auto 30px;
+    position: relative;
+    input,select{
+      width: 100%;
+      border: 1px solid #ccc;
+      height: 42px;
+      outline: none;
+      padding-left: 10px;
+      box-sizing:border-box;
+    }
+    span{
+      position: absolute;
+      bottom: -18px;
+      left: 0;
+      color: red;
+    }
+    input:hover,select:hover{
+      border: 1px solid rgb(255,106,0);
+    }
+  }
+  .signIn_btn,.resigter_btn{
+    border: 1px solid #ff9000;
+    height: 42px;
+    line-height: 42px;
+    outline: none;
+    color: #fff;
+    text-align: center;
+    width: 60%;
+    cursor: pointer;
+        background-color: #ff6a00;
+        box-shadow: 0 1px 1px #ebe7e6;
+    border-color: #ff6a00;
+    &:hover{
+      background-color: #ff8a00;
+    }
+  }
+  .login_txt{
+    text-align: center;
+    font-size: 16px;
+  }
+  .ohterdoing{
+    position: relative;
+    top: -20px;
+    a{
+      color: #999;
+      float: right;
+      margin-left: 10px;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.register_box{
+  height: 460px;
+}

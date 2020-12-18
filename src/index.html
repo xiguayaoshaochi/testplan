@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" content="">
+  <meta name="viewport"
+    content="width=device-width,height=device-height,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0">
+  <title>坚果设计-产品效果开花计划</title>
+</head> 
+
+
+<body style="opacity: 0;">
+  <div class="box" id="vue_login">
+    <div class="login_box" v-if='loginState'>
+      <div class="login_txt">登录</div>
+      <div class="username_box">
+        <input type="text" name="username" id="username" placeholder="邮箱"  v-model="username" />
+        <span>{{username_txt}}</span>
+      </div>
+      <div class="password_box">
+        <input type="text" name="password" id="password" placeholder="密码" v-model="password" />
+        <span>{{password_txt}}</span>
+      </div>
+      <div class="signIn_btn" @click=signIn>登录</div>
+      <div class="ohterdoing">
+        <a href="register.html" class="register">注册</a>
+        <a href="forgetpd.html" @click.prevent.self class="forgetpd">忘记密码</a>
+      </div>
+      
+    </div>
+    <!-- <input type="file" name="" id="file" @change=changefile multiple="multiple">
+    <img src="" id="getImg" alt="">
+    <div id="gbtn" style="width:200px;height:50px;background: red;" @click = getImg></div> -->
+  </div>
+</body>
+
+</html>

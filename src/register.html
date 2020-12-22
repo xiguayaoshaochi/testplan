@@ -10,37 +10,7 @@
 
 
 <body style="opacity: 0;">
-  <div class="box" id="v_register">
-    <div class="login_box register_box">
-      <div class="login_txt">注册</div>
-      <div class="username_box">
-        <input type="text" name="username" id="r_username" placeholder="邮箱" @blur='checkUsername' v-model="username" />
-        <span>{{username_txt}}</span>
-      </div>
-      <div class="password_box">
-        <input type="text" name="password" id="r_password" placeholder="密码" @blur='checkPassword' v-model="password" />
-        <span>{{password_txt}}</span>
-      </div>
-      <div class="password_box">
-        <input type="text" name="password" id="r_password2" placeholder="再输入一次密码" @blur='checkPassword2' v-model="password2" />
-        <span>{{password_txt2}}</span>
-      </div>
-      <div class="choosename">
-        <select v-model="selected" placeholder="再输入一次密码">
-          <option value="" disabled selected>请选择注册名，已注册用户不会出现在此列表</option>
-          <option v-for="option in options" v-bind:value="option.name">
-            {{ option.name }}
-          </option>
-        </select>
-        <span>{{selected_txt}}</span>
-      </div>
-      <div class="signIn_btn" @click='registerSend'>注册</div>
-      <div class="ohterdoing">
-        <a href="index.html" class="register">已注册,去登录</a>
-      </div>
-      
-    </div>
-  </div>
+
 </body>
 
 </html>

@@ -26,7 +26,7 @@
       </div>
       <div class="signIn_btn" @click='registerSend'>注册</div>
       <div class="ohterdoing">
-        <a href="index.html" class="register">已注册,去登录</a>
+        <router-link to="/login">已注册,去登录</router-link>
       </div>
       
     </div>
@@ -34,18 +34,26 @@
 </template>
 
 <script>
+import app from '../js/global.js'
+const db = app.database();
+const loginState = app.auth().hasLoginState();
+const _ = db.command;
+const auth = app.auth({
+  persistence: "local" //用户显式退出或更改密码之前的30天一直有效
+});
 export default {
-  el:'v_register',
-  data:{
-    username: '',
-    password: '',
-    password2: '',
-    username_txt: '',
-    password_txt: '密码长度不小于 8 位，不大于 32 位，需要包含字母和数字',
-    password_txt2: '',
-    selected: '',
-    selected_txt: '',
-    options:null
+  data(){
+    return{
+      username: '',
+      password: '',
+      password2: '',
+      username_txt: '',
+      password_txt: '密码长度不小于 8 位，不大于 32 位，需要包含字母和数字',
+      password_txt2: '',
+      selected: '',
+      selected_txt: '',
+      options:null
+    }
   },
   mounted(){
     db.collection("name").get().then((res)=>{

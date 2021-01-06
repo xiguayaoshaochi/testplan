@@ -1,6 +1,6 @@
 <template>
   <div class="box" id="vue_login">
-    <!-- v-if='loginState' -->
+    <!-- v-if='loginState' -->   
     <div class="login_box" >
       <div class="login_txt">登录</div>
       <div class="username_box">

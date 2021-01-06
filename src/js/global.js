@@ -9,5 +9,4 @@ window.onload = function name(params) {
   document.getElementsByTagName('body')[0].style.opacity = 1;
 }
 
-
 export default  app;

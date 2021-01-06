@@ -38,7 +38,9 @@ import app from '../js/global.js'
 const db = app.database();
 const loginState = app.auth().hasLoginState();
 const _ = db.command;
-const auth = app.auth({
+
+window.app = app;
+window.auth = app.auth({
   persistence: "local" //用户显式退出或更改密码之前的30天一直有效
 });
 export default {
@@ -56,11 +58,22 @@ export default {
     }
   },
   mounted(){
-    db.collection("name").get().then((res)=>{
-      // 
-      this.options = res.data
-    })
     var _this = this;
+    if (!loginState) {
+      console.log(auth)
+      auth.anonymousAuthProvider().signIn().then(()=>{
+        console.log('匿名登录成功!')
+        db.collection("name").get().then((res)=>{
+          // 
+          _this.options = res.data
+          console.log(_this.options)
+        })
+      }).catch((err) => {
+        console.log('登录失败!')
+      });
+    }
+    
+    
     // db.collection("registerName")
     // .add({
     //   password: _this.password,

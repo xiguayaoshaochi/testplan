@@ -10,7 +10,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = {
-  entry: path.resolve(__dirname,"./src/js/index.js"), // 入口起点，可以指定多个入口起点，表示要使用webpack打包哪个文件
+  entry: path.resolve(__dirname,"./src/js/main.js"), // 入口起点，可以指定多个入口起点，表示要使用webpack打包哪个文件
   output: { // 输出，只可指定一个输出配置
     filename: 'bundle.js', // 输出文件名
     path: path.resolve(__dirname, 'dist') // 输出文件所在的目录

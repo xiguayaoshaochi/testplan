@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     signIn(){
-      var _this  = this;
+      var _this  = this; 
       auth.signInWithEmailAndPassword(_this.username, _this.password).then((e) => {
         // 邮箱密码登录成功
         console.log('邮箱密码登录成功');

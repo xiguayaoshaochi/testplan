@@ -40,7 +40,7 @@ export default {
           var  fileName = file.name;
           console.log(file);
           app
-            .uploadFile({  
+            .uploadFile({   
               cloudPath: 'images/'+fileName,
               filePath: file,
               onUploadProgress: function (progressEvent) {

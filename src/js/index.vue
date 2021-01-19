@@ -22,7 +22,7 @@ const _ = db.command;
 export default {
  data() {
    return {
-     data1:'1234',
+     data1:'1234564',
    }
  },
  mounted() {

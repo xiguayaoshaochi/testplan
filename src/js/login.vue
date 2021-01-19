@@ -17,6 +17,7 @@
         <router-link to="/forgetpd">忘记密码</router-link>
       </div>
     </div>
+    <!-- <input type="file" value="" id="file" @change='changefile'> -->
   </div>
 </template>
 

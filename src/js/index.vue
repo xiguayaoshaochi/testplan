@@ -33,6 +33,7 @@ export default {
  methods: {
    fileSuccess(){
      console.log(1)
+     //
    },
     uploadSectionFile(params) {
           const file = params.file;

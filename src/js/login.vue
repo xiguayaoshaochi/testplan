@@ -1,6 +1,6 @@
 <template>
-  <div class="box" id="vue_login">
-    <!-- v-if='loginState' -->   
+  <div class="box" id="vue_login" >
+    
     <div class="login_box" >
       <div class="login_txt">登录</div>
       <div class="username_box">
@@ -22,9 +22,10 @@
 </template>
 
 <script>
-import app from '../js/global.js'
+import {app,auth} from '../js/global.js';
+import { mapState, mapGetters,mapMutations  } from 'vuex';
 const db = app.database();
-const loginState = app.auth().hasLoginState();
+
 const _ = db.command;
 export default {
   data() {
@@ -35,13 +36,22 @@ export default {
     password_txt: '',
     loginState: '',  
    }
+  }, 
+  computed:{
+    ...mapGetters(['getState']),
   },
   mounted() {
-    if (loginState&&loginState._loginType) {
+    this.loginState = app.auth().hasLoginState();
+    this.setloginState({state:this.loginState});
+    if (this.loginState&&this.loginState.isAnonymousAuth) {
       auth.signOut();
+    }else if(this.getState){
+      console.log('login')
+      this.$router.push('/upload');
     }    
   },
   methods: {
+    ...mapMutations(['setloginState']),
     signIn(){
       var _this  = this; 
       auth.signInWithEmailAndPassword(_this.username, _this.password).then((e) => {
@@ -49,12 +59,16 @@ export default {
         console.log('邮箱密码登录成功');
         // alert("邮箱密码登录成功")
         
-         this.$message({
+        this.$message({
           showClose: true,
-          message: '邮箱密码登录成功',
+          message: '登录成功!',
           type: 'success'
         });
-        this.$router.push('/index')
+        this.setloginState({ state: app.auth().hasLoginState() })
+        this.loginState = this.getState;
+        console.log(this.getState);
+        this.$router.push('/index');
+        
         async function gname() {
           var getName = await db.collection("registerName").get().then((res)=>{
             var nameArr = res.data;

@@ -28,21 +28,16 @@
       <div class="ohterdoing">
         <router-link to="/login">已注册,去登录</router-link>
       </div>
-      
     </div>
   </div>
 </template>
 
 <script>
-import app from '../js/global.js'
+import {app,auth} from '../js/global.js'
 const db = app.database();
 const loginState = app.auth().hasLoginState();
 const _ = db.command;
 
-window.app = app;
-window.auth = app.auth({
-  persistence: "local" //用户显式退出或更改密码之前的30天一直有效
-});
 export default {
   data(){
     return{

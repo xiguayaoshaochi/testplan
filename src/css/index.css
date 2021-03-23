@@ -152,9 +152,14 @@ letter-spacing: 1px;
   top: 0;
 }
 
-#canvas{
+.top61{
   position: absolute;
+  width: 100%!important;
 }
+
+/* #canvas{
+  position: absolute;
+} */
 
 
 .box{

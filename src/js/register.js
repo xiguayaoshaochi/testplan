@@ -1,4 +1,4 @@
-import app from '../js/global.js'
+import { app} from '../js/global.js'
 import indexscss from '../css/index.scss'
 import indexcss from '../css/index.css'
 import Vue from "vue";
@@ -14,7 +14,6 @@ console.log(loginState)
 if (!loginState) {
   auth.anonymousAuthProvider()
     .signIn()
-  console.log(1)
     // setInterval(() => {
     //   auth.signOut();
     //   console.log("out")

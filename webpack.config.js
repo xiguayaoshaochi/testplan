@@ -36,18 +36,18 @@ module.exports = {
 		new VueLoaderPlugin()
   ],
   optimization: { //与entry同级
-    minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          compress: false,
-          mangle: true,
-          output: {
-            comments: false,
-          },
-        },
-        sourceMap: false,
-      })
-    ]
+    // minimizer: [
+    //   new UglifyJsPlugin({
+    //     uglifyOptions: {
+    //       compress: false,
+    //       mangle: true,
+    //       output: {
+    //         comments: false,
+    //       },
+    //     },
+    //     sourceMap: false,
+    //   })
+    // ]
   },
   // 使用webpack-dev-server -D 把热更新安装到本地
   // 只有安装到全局 -g的工具，才能再终端中直接执行

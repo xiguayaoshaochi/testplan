@@ -21,7 +21,7 @@
           </el-image>
         </div>
       </el-col>
-    </el-row>
+    </el-row> 
     <el-pagination
       small
       background

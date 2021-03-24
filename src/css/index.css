@@ -160,7 +160,10 @@ letter-spacing: 1px;
 /* #canvas{
   position: absolute;
 } */
-
+.el-pagination,
+.upload-demo{
+  text-align: center;
+}
 
 .box{
   width: 100%;

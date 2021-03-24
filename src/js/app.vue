@@ -4,25 +4,26 @@
       :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
+      router
       @select="handleSelect"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <el-submenu index="1">
+      <el-submenu index="1" >
         <template slot="title">Google</template>
-        <el-menu-item index="1-1">置顶推广图</el-menu-item>
-        <el-menu-item index="1-2">产品说明</el-menu-item>
-        <el-menu-item index="1-3">icon图标</el-menu-item>
-        <el-menu-item index="1-4">商店五图/预览视频</el-menu-item>
+        <el-menu-item index="sidebar">置顶推广图</el-menu-item>
+        <el-menu-item index="sidebarVideo">产品说明</el-menu-item>
+        <el-menu-item index="upload">icon图标</el-menu-item>
+        <el-menu-item index="uploadVideo">商店五图/预览视频</el-menu-item>
         <el-menu-item index="1-5">置顶图</el-menu-item>
       </el-submenu>
       <el-submenu index="2">
         <template slot="title">Facebook</template>
-        <el-menu-item index="2-1" @click="jump('facebookIndex')">置顶页面/视频</el-menu-item>
+        <el-menu-item index="facebookindex">置顶页面/视频</el-menu-item>
         <el-menu-item index="2-2">粉丝页头像</el-menu-item>
         <el-menu-item index="2-3">活动文案</el-menu-item>
         <el-menu-item index="2-4">活动图/视频/360图/H5</el-menu-item>
-        <el-menu-item index="2-5" @click="jump('show')">推广形式(视频/图片/轮播图)</el-menu-item>
+        <el-menu-item index="show">推广形式(视频/图片/轮播图)</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
         <template slot="title">IOS</template>
@@ -65,7 +66,7 @@ Vue.use(ElementUI);
 export default {
  data() {
    return {
-    activeIndex: '1',
+    activeIndex:"1",
     dialogVisible: false,
     loginState:'',
     nickname:'',
@@ -76,7 +77,7 @@ export default {
    ...mapGetters(['getState']),
  },
  mounted() {
-   
+   window.tt = this.$router
    this.loginState =  app.auth().hasLoginState();
    this.setloginState({ state: this.loginState });
    if (this.loginState) {
@@ -88,10 +89,7 @@ export default {
     ...mapMutations(['setloginState']),
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
-    },
-    jump(address){
-      console.log(this.$router)
-      this.$router.replace({path:'/'+address});
+      // this.$router.push(keyPath);
     },
     signOut(){
       this.dialogVisible = false;

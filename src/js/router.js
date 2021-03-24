@@ -5,12 +5,13 @@ import login from '../js/login.vue'
 import register from '../js/register.vue'
 import upload from '../js/upload.vue'
 import uploadVideo from '../js/uploadVideo.vue'
-import facebookIndex from '../js/facebookIndex.vue'
+import facebookindex from '../js/facebookindex.vue'
 import index from '../js/index.vue'
+import sidebar from '../js/sidebar.vue'
+import sidebarVideo from '../js/sidebarVideo.vue'
 import show from '../js/show.vue'
 
 const router = new VueRouter({
-  mode: 'history',
   routes: [
     { path: '/', redirect: '/login' },
     { path: '/login', component: login },
@@ -28,8 +29,14 @@ const router = new VueRouter({
       path: '/uploadVideo',
       component: uploadVideo
     }, {
-      path: '/facebookIndex',
-      component: facebookIndex
+      path: '/facebookindex',
+      component: facebookindex
+    }, {
+      path: '/sidebar',
+      component: sidebar
+    }, {
+      path: '/sidebarVideo',
+      component: sidebarVideo
     }
   ]
 })

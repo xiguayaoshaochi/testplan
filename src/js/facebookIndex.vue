@@ -58,15 +58,11 @@ export default {
       },
     }
   },
-  beforeRouteLeave(){
-    this.$refs.videoPlayer.player.pause()
-  },
   created() {
     
   },
   mounted() {
-    // var src = 'https://7465-test-1gotf68l43775c18-1303960370.tcb.qcloud.la/video/1616393844990EverMerge11.mp4?sign=d22e2a65984ee87e8288bdad31fd7ad7&t=1616405103'
-    // this.$refs.videoPlayer.player.src(src) // 重置进度条
+
   },
   methods: {
     changeUpload(e){
@@ -78,44 +74,6 @@ export default {
       this.$refs.videoPlayer.$el.setAttribute("src", src);
       this.$refs.videoPlayer.player.load();
       this.$refs.videoPlayer.player.play();
-    },
-    // DOM元素上的readyState更改导致播放停止
-    onPlayerWaiting(player) {
-        let time = localStorage.getItem("cacheTime")
-        if(player.cache_.currentTime - Number(time) > 0.1){
-            this.current = Number(time)
-            this.playerReadied(player)
-        }else{
-            this.current = player.cache_.currentTime
-        }
-    },
-
-    // 已开始播放回调
-    onPlayerPlaying($event) {
-        // console.log(player)
-    },
-
-    // 当播放器在当前播放位置下载数据时触发
-    onPlayerLoadeddata($event) {
-        // console.log(player)
-    },
-
-    // // 当前播放位置发生变化时触发。
-    onPlayerTimeupdate(player) {
-        this.playTime = player.cache_.currentTime
-        let playTime = player.cache_.currentTime
-        setTimeout(function () {
-            localStorage.setItem("cacheTime",playTime)
-        },500)
-
-
-        let time = localStorage.getItem("cacheTime")
-        if(player.cache_.currentTime - Number(time) > 2){
-            this.current = Number(time)
-            this.playerReadied(player)
-        }else{
-            this.current = player.cache_.currentTime
-        }
     },
     //将侦听器绑定到组件的就绪状态。与事件监听器的不同之处在于，如果ready事件已经发生，它将立即触发该函数。。
     playerReadied(player) {

@@ -19,6 +19,7 @@
               加载中<span class="dot">...</span>
             </div>
           </el-image>
+          <i id="delete_i" @click='deleteImg' :fileID='item.fileID' class="el-icon-circle-close"></i>
         </div>
       </el-col>
     </el-row> 
@@ -108,6 +109,9 @@ export default {
         return res.data.length;
       })
     },
+    deleteImg(){
+      console.log(1)
+    },
     getImg(){
       var _this = this;
       this.drawer = true;
@@ -129,7 +133,7 @@ export default {
             // _this.$emit('changeUpload',res.fileList[0].download_url);
             res.fileList.forEach((el) => {
               if (el.code === "SUCCESS") {
-                _this.imgSrcList.push({url:el.tempFileURL,time:imgData[index].time,width:imgData[index].width,height:imgData[index].height});
+                _this.imgSrcList.push({url:el.tempFileURL,time:imgData[index].time,width:imgData[index].width,height:imgData[index].height,fileID:element.fileID});
                 // console.log(el.tempFileURL)
               } else {
                 //获取下载链接失败
@@ -169,7 +173,8 @@ export default {
 <style lang="scss">
 #sidebar {
   #drawerBox .el-row{
-    margin-bottom: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;;
   }
   .el-image-viewer__wrapper{
     z-index: 999999;
@@ -189,7 +194,7 @@ export default {
   }
   .el-row{
     min-height: 450px;
-    max-height: 490px;
+    max-height: 530px;
     overflow:auto;
   }
 
@@ -200,6 +205,7 @@ export default {
   .el-col-6{
     display: flex;
     margin-bottom: 10px;
+    position: relative;
   }
   
   .demo-image__preview{
@@ -217,6 +223,23 @@ export default {
     text-align: center;
     bottom: -10px;
     box-sizing: border-box;
+  }
+
+  #delete_i{
+    position: absolute;
+    right: -8px;
+    top: -9px;
+    transform: scale(0.7);
+    background: rgb(0, 183, 255);
+    border-radius: 50%;
+    overflow: hidden;
+    color: #fff;
+    z-index: 100;
+    
+  }
+  #delete_i:hover{
+    background: red;
+    cursor: pointer;
   }
 }
 </style>
